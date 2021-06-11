@@ -17,7 +17,7 @@ public class NBody{
 		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
 		double radius = readRadius (filename);
-		Planet[] b = readPlanet (filename);
+		Planet[] b = readPlanets (filename);
 		//picture(double x, double y,   filename)；
 		
 		StdDraw.setScale(-100, 100);
@@ -60,8 +60,8 @@ public class NBody{
 		return radius;
 
 	}
-	// readPlanet("./data/planets.txt")
-	public static Planet[] readPlanet (String a){
+	// readPlanets("./data/planets.txt")
+	public static Planet[] readPlanets (String a){
 		In in = new In(a);
 		//Body planet= new Planet[];
 		Planet[] b = new Planet [5];//new一个里面是对象的数组
