@@ -62,28 +62,31 @@ public class NBody{
 	}
 	// readPlanets("./data/planets.txt")
 	public static Planet[] readPlanets (String a){
+		// Scanner input = new Scanner(System.in);
 		In in = new In(a);
-		//Body planet= new Planet[];
+		
 		Planet[] b = new Planet [5];//new一个里面是对象的数组
 		
 		double numOfPlanet = in.readInt();
 		double radius = in.readDouble();
 		for(int i=0;i<b.length;i++){
-			
 
-		    double xxPos = in.readDouble();
-			double yyPos = in.readDouble();
-			double xxVel = in.readDouble();
-			double yyVel = in.readDouble();
-			double mass = in.readDouble();
-			String imgFileName = in.readString();
 			b[i] = new Planet(xxPos,yyPos,xxVel,yyVel,mass,imgFileName);
-		 //    b[i].xxPos = in.readDouble();
-			// b[i].yyPos = in.readDouble();
-			// b[i].xxVel = in.readDouble();
-			// b[i].yyVel = in.readDouble();
-			// b[i].mass = in.readDouble();
-			// b[i].imgFileName = in.readString();
+		    b[i].xxPos = in.readDouble();
+			b[i].yyPos = in.readDouble();
+			b[i].xxVel = in.readDouble();
+			b[i].yyVel = in.readDouble();
+			b[i].mass = in.readDouble();
+			b[i].imgFileName = in.readString();
+
+		 //    double xxPos = in.readDouble();
+			// double yyPos = in.readDouble();
+			// double xxVel = in.readDouble();
+			// double yyVel = in.readDouble();
+			// double mass = in.readDouble();
+			// String imgFileName = in.readString();
+			
+		 // //    
 			//不能直接赋值 因为我还没有创建对象 这个是reference type 只是给了空间 是null。
 			//正常来讲 new了一个具体大小的数组 数组里是对象。 需要先给对象赋初值 类似初始化 构造器就是给对象初始化用的
 
