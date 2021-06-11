@@ -15,14 +15,9 @@ public class NBody{
 
 		double T = Double.parseDouble(args[0]);
 		double dt = Double.parseDouble(args[1]);
-		System.out.println("前两个数字读好了");
 		String filename = args[2];
-		System.out.println("第三个文件名读好了");
-
 		double radius = readRadius (filename);
-		System.out.println("第三个文件名读好了");
-
-		Body[] b = readBodies (filename);
+		Planet[] b = readPlanet (filename);
 		//picture(double x, double y,   filename)；
 		
 		StdDraw.setScale(-100, 100);
@@ -30,9 +25,9 @@ public class NBody{
 
 		
 
-		for (Body s : b) {//增强for循环
+		for (Planet s : b) {//增强for循环
 			s.draw();
-		}
+		}	
 
 
 		for (double time = 0 ; time < T; time = time + dt) {
@@ -54,37 +49,22 @@ public class NBody{
 				StdDraw.pause(10);
 		    }
 
-
-
-
 	    }
-
-
-
-
-    }
-
-//		enableDoubleBuffering();
-//		show();
-
-
-
-
+}
 
 	//读半径 eg:readRadius("./data/planets.txt")
 	public static double readRadius (String a){
 		In in = new In(a);
 		double numOfPlanet = in.readDouble();
-
 		double radius = in.readDouble();
 		return radius;
 
 	}
-	// readBodies("./data/planets.txt")
-	public static Body[] readBodies (String a){
+	// readPlanet("./data/planets.txt")
+	public static Planet[] readPlanet (String a){
 		In in = new In(a);
-		//Body planet= new Body[];
-		Body[] b = new Body [5];//new一个里面是对象的数组
+		//Body planet= new Planet[];
+		Planet[] b = new Planet [5];//new一个里面是对象的数组
 		
 		double numOfPlanet = in.readInt();
 		double radius = in.readDouble();
@@ -97,7 +77,7 @@ public class NBody{
 			double yyVel = in.readDouble();
 			double mass = in.readDouble();
 			String imgFileName = in.readString();
-			b[i] = new Body(xxPos,yyPos,xxVel,yyVel,mass,imgFileName);
+			b[i] = new Planet(xxPos,yyPos,xxVel,yyVel,mass,imgFileName);
 		 //    b[i].xxPos = in.readDouble();
 			// b[i].yyPos = in.readDouble();
 			// b[i].xxVel = in.readDouble();
