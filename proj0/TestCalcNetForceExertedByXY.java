@@ -39,6 +39,14 @@ public class TestCalcNetForceExertedByXY {
      */
     private static double round(double value, int places) {
         if (places < 0 || Double.isNaN(value) || Double.isInfinite(value)) {
+             if (places < 0){
+                System.out.println("<0");
+             }else if(Double.isNaN(value)){
+                System.out.println("isNaN");
+             }else if( Double.isInfinite(value)){
+                System.out.println("value");
+             }
+
             System.out.println("Tried to round: " + value + ", but couldn't.");
             throw new IllegalArgumentException();
         }
