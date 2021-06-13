@@ -36,7 +36,9 @@ public class IntList {
     /**
      * Returns a list equal to L with all elements squared. Destructive.
      */
-    public static void dSquareList(IntList L) {
+    //毁坏性的方法  不new 直接转箭头 对list 每个元素做平方
+    public static void dSquareList(IntList L) {//改平方？
+
 
         while (L != null) {
             L.first = L.first * L.first;
@@ -47,6 +49,7 @@ public class IntList {
     /**
      * Returns a list equal to L with all elements squared. Non-destructive.
      */
+    //非毁坏性的方法 非毁坏性的方法都要用到new  做平方 一个迭代
     public static IntList squareListIterative(IntList L) {
         if (L == null) {
             return null;
@@ -65,6 +68,7 @@ public class IntList {
     /**
      * Returns a list equal to L with all elements squared. Non-destructive.
      */
+    //非毁坏性 递归
     public static IntList squareListRecursive(IntList L) {
         if (L == null) {
             return null;
@@ -79,10 +83,28 @@ public class IntList {
      * Returns a list consisting of the elements of A followed by the
      * *  elements of B.  May modify items of A. Don't use 'new'.
      */
+    public int size() {
+        if (rest == null) {
+            return 1;
+        }
+        return 1 + this.rest.size();
+    }
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        //不用new 就是毁坏性的
+
+        while (A == null) {//A里面如果没有元素 后面直接就是跟B
+           A = B;
+           return A;
+        }
+        IntList c =  A;//相当于在起始位置留个箭头  毁坏性毁坏在哪里呢 就是在初稿上改了直接 因为我没有new 新的东西
+        while (c.rest != null) {
+            c = c.rest;
+
+        }
+        c.rest = B;
+        return A;
     }
 
     /**
@@ -91,7 +113,13 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        //用new 就是迭代
+
+        if (A == null) {
+            return B;
+        }
+        return new IntList(A.first,  catenate(A.rest, B));
+
     }
 
 

@@ -12,7 +12,7 @@ public class DebugExercise2 {
            step out button because you're not going to learn anything. */
         int z = ~(b - a) >> 31;
 
-        int max = b & w | a & z;
+        int max = (b | w) &(a | z) ;
         return max;
     }
 
@@ -34,7 +34,7 @@ public class DebugExercise2 {
             and &= xor;
             xor = temp;
         }
-        return xor;
+        return b;
     }
 
     /** Returns a new array where entry i is the max of
@@ -82,6 +82,11 @@ public class DebugExercise2 {
         int[] b = {3, -3, 2, -1};
 
         int sumOfElementwiseMaxes = sumOfElementwiseMaxes(a, b);
+        int[] maxes = arrayMax( a , b);
+
+//        System.out.println(maxes);
+        // 这是不可以的   会输出[I@29453f44
+        //需要将int类型的数组转化成string类型数组   可以用method或for循环遍历元素
         System.out.println(sumOfElementwiseMaxes);
     }
 }
