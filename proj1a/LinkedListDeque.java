@@ -1,14 +1,14 @@
-public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占位符<>
+public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占位符<>
     private Naked sentinel;
     private int size;
     private Naked sentinelcopy;
 
-    public class Naked{
-        public Naked prev; //类的属性
-        public T item;
-        public Naked next;
+    public class Naked {
+        private  Naked prev; //类的属性
+        private T item;
+        private Naked next;
 
-        public Naked(Naked p,T i,Naked n){//构造器
+        public Naked(Naked p, T i, Naked n) {//构造器
             prev = p;
             item = i;
             next = n;
@@ -16,18 +16,18 @@ public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占
     }
 
 
-    public LinkedListDeque(){
-        sentinel = new Naked(null,null,null);
+    public LinkedListDeque() {
+        sentinel = new Naked(null, null, null);
         size = 0;
     }
-    public LinkedListDeque(T i){
-        sentinel = new Naked(null,null,null);
-        sentinel.next = new Naked(null,i,null);
+    public LinkedListDeque(T i) {
+        sentinel = new Naked(null, null, null);
+        sentinel.next = new Naked(null, i, null);
         size = 1;
     }
 
-    public LinkedListDeque(LinkedListDeque other){
-        sentinelcopy = new Naked(null,null,null);
+    public LinkedListDeque(LinkedListDeque other) {
+        sentinelcopy = new Naked(null, null, null);
         Naked a = other.sentinel;
 
         for (int i = 0; i < other.size ; i++) {
@@ -37,28 +37,28 @@ public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占
 
     }
 
-    public void addFirst(T item){
-        sentinel.next = new Naked(sentinel,item ,sentinel.next);
+    public void addFirst(T item) {
+        sentinel.next = new Naked(sentinel, item , sentinel.next);
         size = size + 1;
     }
 
-    public void addLast(T item){
-        sentinel.prev = new Naked(sentinel.prev,item ,sentinel);
+    public void addLast(T item) {
+        sentinel.prev = new Naked(sentinel.prev, item , sentinel);
         size = size + 1;
     }
 
-    public boolean isEmpty(){
-        if(size == 0){
+    public boolean isEmpty() {
+        if(size == 0) {
             return true;
         }
         return false;
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
-    public void printDeque(){
+    public void printDeque() {
         Naked a = sentinel;
          for (int i = 0; i < size ; i++) {
                 System.out.println(a.next.item+" ");
@@ -68,8 +68,8 @@ public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占
     }
 
 
-    public T removeFirst(){
-        if(size == 0){
+    public T removeFirst() {
+        if(size == 0) {
             return null;
         }else{
             T a = sentinel.next.item;
@@ -78,7 +78,7 @@ public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占
             return a;
         }
     }
-    public T removeLast(){
+    public T removeLast() {
         if(size == 0){
             return null;
         }else{
@@ -89,7 +89,7 @@ public class LinkedListDeque <T> {//T是为了多类型任意的名字 需要占
         }
     }
 
-    public T get(int index){
+    public T get(int index) {
         if(size == 0){
             return null;
         }else{
