@@ -31,24 +31,24 @@ public class LinkedListDeque<T> {
         sentinelcopy = new Naked(null, null, null);
         Naked a = other.sentinel;
         for (int i = 0; i < other.size; i++) {
-            sentinelcopy.prev  = new Naked(sentinelcopy.prev,a.item ,sentinelcopy);
+            sentinelcopy.prev  = new Naked(sentinelcopy.prev, a.item, sentinelcopy);
             a = a.next;
         }
 
     }
 
     public void addFirst(T item) {
-        sentinel.next = new Naked(sentinel, item , sentinel.next);
+        sentinel.next = new Naked(sentinel, item, sentinel.next);
         size = size + 1;
     }
 
     public void addLast(T item) {
-        sentinel.prev = new Naked(sentinel.prev, item , sentinel);
+        sentinel.prev = new Naked(sentinel.prev, item, sentinel);
         size = size + 1;
     }
 
     public boolean isEmpty() {
-        if(size == 0) {
+        if (size == 0) {
             return true;
         }
         return false;
@@ -60,16 +60,16 @@ public class LinkedListDeque<T> {
 
     public void printDeque() {
         Naked a = sentinel;
-         for (int i = 0; i < size; i++) {
-             System.out.println(a.next.item+" ");
-             a = a.next;
-         }
-         System.out.println("换行");
+        for (int i = 0; i < size; i++) {
+            System.out.println(a.next.item+" ");
+            a = a.next;
+        }
+        System.out.println("换行");
     }
 
 
     public T removeFirst() {
-        if(size == 0) {
+        if (size == 0) {
             return null;
         } else {
             T a = sentinel.next.item;
@@ -79,7 +79,7 @@ public class LinkedListDeque<T> {
         }
     }
     public T removeLast() {
-        if(size == 0) {
+        if (size == 0) {
             return null;
         } else {
             T a = sentinel.prev.item;
@@ -90,7 +90,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if(size == 0) {
+        if (size == 0) {
             return null;
         } else {
             Naked a = sentinel;
