@@ -1,4 +1,5 @@
-public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占位符<>
+//T是为了多类型任意的名字 需要占位符<>
+public class LinkedListDeque<T> {
     private Naked sentinel;
     private int size;
     private Naked sentinelcopy;
@@ -7,8 +8,8 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
         private  Naked prev; //类的属性
         private T item;
         private Naked next;
-
-        public Naked(Naked p, T i, Naked n) {//构造器
+        //构造器
+        public Naked(Naked p, T i, Naked n) {
             prev = p;
             item = i;
             next = n;
@@ -29,8 +30,7 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
     public LinkedListDeque(LinkedListDeque other) {
         sentinelcopy = new Naked(null, null, null);
         Naked a = other.sentinel;
-
-        for (int i = 0; i < other.size ; i++) {
+        for (int i = 0; i < other.size; i++) {
             sentinelcopy.prev  = new Naked(sentinelcopy.prev,a.item ,sentinelcopy);
             a = a.next;
         }
@@ -60,9 +60,9 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
 
     public void printDeque() {
         Naked a = sentinel;
-         for (int i = 0; i < size ; i++) {
-                System.out.println(a.next.item+" ");
-                a = a.next;
+         for (int i = 0; i < size; i++) {
+             System.out.println(a.next.item+" ");
+             a = a.next;
          }
          System.out.println("换行");
     }
@@ -71,7 +71,7 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
     public T removeFirst() {
         if(size == 0) {
             return null;
-        }else{
+        } else {
             T a = sentinel.next.item;
             sentinel.next = sentinel.next.next;
             sentinel.next.prev = sentinel;
@@ -79,9 +79,9 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
         }
     }
     public T removeLast() {
-        if(size == 0){
+        if(size == 0) {
             return null;
-        }else{
+        } else {
             T a = sentinel.prev.item;
             sentinel.prev = sentinel.prev.prev;
             sentinel.prev.next = sentinel;
@@ -90,11 +90,11 @@ public class LinkedListDeque<T> {//T是为了多类型任意的名字 需要占�
     }
 
     public T get(int index) {
-        if(size == 0){
+        if(size == 0) {
             return null;
-        }else{
+        } else {
             Naked a = sentinel;
-            for (int i = 0; i <index ; i++) {
+            for (int i = 0; i < index; i++) {
                 a = a.next;
             }
             return a.item;
