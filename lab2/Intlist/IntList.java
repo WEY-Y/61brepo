@@ -113,7 +113,7 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        //用new 就是迭代
+        //用new  迭代或递归  我用的是递归
 
         if (A == null) {
             return B;
